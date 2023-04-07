@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="PostList">
+<script type="text/javascript" src="/js/comment.js" ></script>
+<link href="/css/modal.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/js/popup.js" ></script>
+
+<div class="insertPost outLine" th:style="${'display:none'}">
+    <div class="modal">
+        <div class="modal_body" style="width:490px; height:650px;">
+            <button type="button" class="btn-close" aria-label="Close" onclick="closeModal()"></button> <span class="span-submit" onclick="contentSubmit('contentInsert')">공유</span>
+            <hr>
+            <th:block th:replace="popup/insertPost :: InsertPost"></th:block>
+        </div>
+    </div>
+</div>
+
+<div class="userPost outLine" th:style="${'display:none'}">
+    <div class="modal">
+        <div class="modal_body" style="width:950px; height:630px;">
+            <button type="button" class="btn-close" aria-label="Close" onclick="closeModal()"></button><hr>
+            <th:block th:replace="popup/userPost :: UserPost"></th:block>
+        </div>
+    </div>
+</div>
+
+<div class="updatePost outLine" th:style="${'display:none'}">
+    <div class="modal">
+        <div class="modal_body" style="width:490px; height:650px;">
+            <button type="button" class="btn-close" aria-label="Close" onclick="closeModal()"></button><span class="span-submit" onclick="contentSubmit('contentUpdate')">수정</span>
+            <hr>
+            <th:block th:replace="popup/updatePost :: UpdatePost"></th:block>
+        </div>
+    </div>
+</div>
+<div class="content">
+
+    <div class="div-main-center" th:if="${post.size == 0}">
+        <div><img src="/mainImg/sad.png" class="div-img">
+            <p class="span-side2 null-p">검색 결과가 없습니다</p></div>
+    </div>
+
+    <div th:each="post : ${post}">
+                        <div class="div-main-center">
+                            <div class="div-post-content">
+                                <div style="margin-bottom:10px">
+                                <img th:src="'/profile_img/'+${post.user_img_file}" class="div-img" style="margin-left:0;">
+                                <sapn class="span-side2" th:onclick="passLoc([[${post.user_name}]])">[[${post.user_name}]]</sapn>
+                                <small class="small-update s-margin" style="margin-left:2%;" th:if="${user_name eq post.user_name}" th:onclick="updatePost('updatePost' , [[${post.post_num}]])">수정 </small>
+                                <small class="small-update" th:if="${user_name eq post.user_name}" th:onclick="deletePost([[${post.post_num}]])"> 삭제</small>
+                                </div>
+                                <div class="insert-post">
+                                    <img th:src="'/post_img/'+${post.post_img_file}" class="insert-img insert-postImg" style="margin-left:0;">
+                                </div>
+                            </div>
+                        </div>
+        <div class="div-main-center" style="margin-top:0%;">
+            <div class="div-post-content" style="height: auto;">
+
+                <img src="/mainImg/heart-2.png" th:class="'unLike'+${post.post_num}+' post-icon'" th:onclick="insertLike([[${post.post_num}]])">
+                <img src="/mainImg/heart.png" th:class="'Like'+${post.post_num}+' post-icon'" style="display:none" th:onclick="deleteLike([[${post.post_num}]])">
+                <span th:class="'likeC'+${post.post_num}" style="margin-right: 10px;"> [[${post.post_like}]]</span>
+
+                <img src="/mainImg/comment.png" class="post-icon"> <span th:class="'CommC'+${post.post_num}"> [[${post.post_comment}]]</span>
+                <p class="p-comment">
+                    <span style="font-weight:700;">[[${post.user_name}]]</span>
+                    <span>[[${post.post_content}]]</span></p>
+                <a class="p-comment" th:onclick="userPost('userPost' , [[${post.post_num}]])" style="cursor: pointer;">[[${post.post_comment}]]개 댓글보기</a>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+</div>
+

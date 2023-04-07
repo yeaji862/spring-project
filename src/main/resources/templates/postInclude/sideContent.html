@@ -1,0 +1,17 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="SideContent">
+
+<div><sapn class="p-main" onclick="location.href='/user/allPost'">Pets</sapn></div>
+<div class="div-side div-1" onclick="location.href='/user/newestPost'"><sapn class="span-side" th:classappend="${newestPost != null} ? 'span-side-check'"># 최신순</sapn></div>
+<div class="div-side div-2" onclick="location.href='/user/popularityPost'"><sapn class="span-side" th:classappend="${popularityPost != null} ? 'span-side-check'"># 인기순</sapn></div>
+<div class="div-side div-3" onclick="location.href='/user/followingPost'"><sapn class="span-side" th:classappend="${followingPost != null} ? 'span-side-check'"># follow</sapn></div>
+<div class="div-side div-4" onclick="location.href='/user/likePost'"><sapn class="span-side" th:classappend="${likePost != null} ? 'span-side-check'"># Like</sapn></div>
+<div class="div-side div-5" onclick="location.href='/user/userPost'">
+    <img src="/mainImg/paw.png" class="div-img">
+    <sapn class="span-side2">프로필</sapn></div>
+<div class="div-side div-6" onclick="insertPost('insertPost')">
+    <img src="/mainImg/post.png" class="div-img" style="border-radius:0px;">
+    <sapn class="span-side2">게시물 등록</sapn></div>
+<div class="logout" onclick="location.href='/logout'">
+    <sapn class="span-side2">Logout</sapn></div>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.petsProject.postImpl.PostMapper">
+
+    <select id="allPost" resultType="com.example.petsProject.post.Post">
+        SELECT * FROM post
+    </select>
+
+    <select id="selectPost" resultType="com.example.petsProject.post.Post">
+        SELECT * FROM post where post_num = #{post_num}
+    </select>
+
+    <select id="conSearchPost" resultType="com.example.petsProject.post.Post">
+        SELECT * FROM post WHERE post_content LIKE CONCAT('%', #{search}, '%')
+    </select>
+
+    <select id="profilePost" resultType="com.example.petsProject.post.Post">
+        SELECT * from post where user_name = #{user_name}
+    </select>
+
+    <select id="newestPost" resultType="com.example.petsProject.post.Post">
+        SELECT * from post order by post_regdate DESC;
+    </select>
+
+    <select id="popularityPost" resultType="com.example.petsProject.post.Post">
+        SELECT * from post order by post_like DESC;
+    </select>
+
+    <select id="likePost" resultType="com.example.petsProject.post.Post">
+        SELECT p.* FROM post p , postLike pl WHERE pl.user_name = #{user_name} and pl.post_num = p.post_num;
+    </select>
+
+    <select id="followingPost" resultType="com.example.petsProject.post.Post">
+        select p.* from post p , follow f where f.from_user_name = p.user_name and f.user_id = #{user_id} AND f.to_user_name = #{to_user_name};
+    </select>
+
+    <select id="post_Like_Comment_count" resultType="com.example.petsProject.post.Post">
+        SELECT post_like , post_comment  FROM post where post_num = #{post_num};
+    </select>
+
+    <insert id="insertPost">
+        INSERT into post
+        (user_id , user_name , post_content , post_regdate , post_img_file , user_img_file )
+        values (#{user_id} , #{user_name} , #{post_content} , now() , #{post_img_file} , #{user_img_file});
+    </insert>
+
+    <update id="updatePost">
+        UPDATE post set post_content = #{post_content}
+        where post_num = #{post_num} AND  user_id = #{user_id};
+    </update>
+
+    <delete id="deletePost">
+        DELETE FROM post where post_num = #{post_num} AND  user_id = #{user_id};
+    </delete>
+
+
+</mapper>

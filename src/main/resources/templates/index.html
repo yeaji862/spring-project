@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Spring Boot Application with JSP</title>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+    <link href="/css/join.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/member.js" ></script>
+</head>
+<body class="sign-body">
+<h1 class="sign-h1" style="cursor: pointer;font-size: 55px;" onclick="main()">Pets</h1>
+<h3 class="sign-h3" >반려동물의 일상을 공유해보세요!</h3>
+<div class="container" id="container">
+    <div class="form-container sign-in-container">
+        <div class="login-form">
+        <form action="/login_proc" method="post" class="sign-form login-form">
+            <h1 class="sign-h1">Sign in</h1>
+            <br>
+
+            <img src="/mainImg/btn_google_signin_light_normal_web.png" style="width: 150px;cursor: pointer;" onclick="location.href='/oauth2/authorization/google'">
+            <input class="sign-input login-id" type="text" placeholder="Id" name="user_id"/>
+            <input class="sign-input login-pass" type="password" placeholder="Password" name="user_pass"/>
+            <a class="sign-a" onclick="findPass()">비밀번호 찾기</a>
+            <input type="button" class="sign-button" value="Sign In" onclick="emptyCheck('login-id','login-pass','login-form')">
+            <input type="button" class="sign-button" onclick="signUp()" value="Sign Up">
+        </form>
+
+        </div>
+
+
+        <div class="findPass" style="display:none">
+        <th:block th:replace="member/findPass :: FindPoss"></th:block>
+        </div>
+
+        <div class="join1" style="display:none">
+            <th:block th:replace="member/join :: Join1"></th:block>
+        </div>
+
+    </div>
+
+    <div class="overlay-container">
+        <img src="/mainImg/KakaoTalk_Image_2023-04-04-01-13-28.jpeg" alt="" style="
+   height: 100%;">
+    </div>
+
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="FindPoss">
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+
+<form action="findPass.mem" method="post" style="padding: 0 50px;" id="findPass">
+    <h3 class="sign-h1" style="margin-top: 60px;">비밀번호 찾기</h3><br>
+    <input class="sign-input findPass-userId" type="text" placeholder="Id" name="user_id"/>
+    <input class="sign-input findPass-phone" type="text" placeholder="핸드폰 번호 입력" style="width: 60%; margin-right: auto;" name="user_phone"/>
+    <input type="button" class="sign-button sand-findPass" style="padding: 12px 27px;" onClick="sand('findPass')" value="인증번호">
+    <span style="color:red; display:none" class="error-phone-findPass">ex) 01011112222</span><br>
+    <a>인증번호</a>
+    <input class="sign-input num-findPass" type="text" placeholder="인증번호 입력"/>
+    <input type="button" class="sign-button" style="margin:auto;display:block;margin-top: 30px;" onclick="findPassCheck('findPass')" value="비밀번호 재등록">
+</form>
+
+</html>

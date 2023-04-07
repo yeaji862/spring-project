@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.petsProject.memberImpl.MemberMapper">
+
+    <select id="selectName" resultType="com.example.petsProject.member.Member">
+        select * from member where user_id = #{user_id}
+    </select>
+
+    <select id="nameCheck" resultType="String">
+        select user_name from member where user_name = #{user_name}
+    </select>
+
+    <insert id="joinMapper">
+        INSERT into member
+        (user_id, user_pass, user_name, user_phone, user_img_file, animal_type, animal_birth, animal_gender , login_type)
+        values
+        ( #{user_id} , #{user_pass} , #{user_name} ,  #{user_phone} ,#{user_img_file} , #{animal_type} , #{animal_birth} , #{animal_gender} , #{login_type})
+    </insert>
+
+    <select id="findID" resultType="String">
+        select user_id from member where user_phone = #{user_phone}
+    </select>
+
+    <select id="findPass" resultType="String">
+        SELECT user_id from member where user_id = #{user_id} and user_phone = #{user_phone}
+    </select>
+
+    <update id="editPass" >
+        UPDATE member set
+        user_pass = #{user_pass}
+        WHERE user_id = #{user_id}
+    </update>
+
+    <select id="overlapId" resultType="String">
+        select user_id from member where user_id = #{user_id}
+    </select>
+
+    <update id="editInfo" >
+        UPDATE member set
+        user_name = #{user_name}, user_phone = #{user_phone}, user_img_file = #{user_img_file},
+        animal_type = #{animal_type}, animal_birth = #{animal_birth}, animal_gender = #{animal_gender}
+        WHERE user_id = #{user_id}
+    </update>
+
+    <select id="login" resultType="com.example.petsProject.member.Member">
+        SELECT * from member where user_id = #{user_id}
+    </select>
+
+    <select id="selectProfile" resultType="com.example.petsProject.member.Member">
+        SELECT * from member where user_name = #{user_name}
+    </select>
+
+    <select id="idSearchPost" resultType="com.example.petsProject.member.Member">
+        SELECT * FROM member WHERE user_name LIKE CONCAT('%', #{search}, '%')
+    </select>
+
+
+</mapper>
