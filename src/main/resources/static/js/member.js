@@ -14,7 +14,7 @@ function sand(data){ // 인증번호 보내기
        const randomNum = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
                        $.ajax({
                        url: "authenticationNumber.mem",
-                       data: { "user_phone" : $(".join-phone").val() , "randomNumber" : randomNum },
+                       data: { "user_phone" : $('.'+data+'-phone').val() , "randomNumber" : randomNum }, //
                        method: "POST",
                        dataType: "text",
                        success:function(){
