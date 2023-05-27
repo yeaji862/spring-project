@@ -17,7 +17,7 @@ http://www.projectk.r-e.kr:8080
 <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=black"> <img src="https://img.shields.io/badge/AJAX-005F0F?style=for-the-badge&logo=logoColor=black">
 
 **BACK** <br>
-<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/MyBatis-6DB33F?style=for-the-badge&logo=&logoColor=white"> 
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/MyBatis-6DB33F?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/mariadb-003545?style=for-the-badge&logo=jquery&logoColor=black"> <img src="https://img.shields.io/badge/AJAX-005F0F?style=for-the-badge&logo=logoColor=black">
 
 **API**  <br>
 <img src="https://img.shields.io/badge/googleLogin-4285F4?style=for-the-badge&logo=google&logoColor=white"> <img src="https://img.shields.io/badge/coolSMS-4285F4?style=for-the-badge&logo=&logoColor=white">
